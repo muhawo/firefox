@@ -30,22 +30,12 @@ toolbarpaletteitem > label {
 toolbarpaletteitem .toolbarbutton-text {
   display: none;
 }
-#palette-box-showed toolbarbutton[type="menu"]{
-	overflow: visible;
-}
 
-#palette-box-showed[mode="icons"] label,
-#palette-box-showed[mode="text"] image {
+#GL_panel[mode="icons"] toolbarpaletteitem > label,
+#GL_panel[mode="text"] toolbarpaletteitem image {
   display: none;
 }
 
-#palette-box-hidden[mode="icons"] label,
-#palette-box-hidden[mode="text"] image {
-  display: none;
-}
-#palette-box-showed toolbarpaletteitem {
-  cursor: default;
-}
-#palette-box-hidden toolbarpaletteitem {
+#GL_panel toolbarpaletteitem {
   cursor: default;
 }
