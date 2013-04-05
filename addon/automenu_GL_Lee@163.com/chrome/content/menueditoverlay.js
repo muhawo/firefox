@@ -37,45 +37,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-/*
-There are two menupopup elements for each menu: X and EM_X where X is the
-menu[popup]'s ID.
- - X is the original menu, and it will contain modified (per automenu_GL.rdf) version.
- - EM_X contains all menu items that user have chosen to be hidden. Each
-   menuitem exists either in X or in EM_X.
-Also for each edited menu, there is an array, MenuEdit.backups[menuId], that
-consists of ids of menuitems that were in the menu originally, in their initial
-order. It is used to implement the Reset feature and to show the original menu
-when requested.
-
-Four functions that do the real job are:
- - moveToTemp() moves all items from the original menu X to EM_X menu for
-   further processing.
-        xxx Looks like this loses event handlers registered 
-            on the items and their subelements.
- - populateMenu() moves the items that user selected to be visible back from
-   EM_X to X, removing "bad" (i.e. non-existent in document) items from the
-   datasource.
- - discoverNew() adds items that are not yet in the datasource to it.
-   It is invoked after moveToTemp() and populateMenu(), to minimize the number
-   of items to check.
- - onAfterPopupShown() is invoked each time a popup is shown to hide consecutive
-   separators.
-
-The rest are quite short:
- - getBackup() returns the backup array as described above, creating one if
-   it doesn't already exist. (Note that getBackup is guaranteed to be called
-   before any modifications to the menu are made)
- - editMenu(menuid) processes a single menu through calls to getBackup,
-   moveToTemp, populateMenu and discoverNew.
- - init() loads automenu_GL.rdf and calls editMenu for each menu listed there.
- - openOptions() is just a helper which opens Menu Editor Options dialog
-*/
-
-// xxx rewrite mailContextMenus.js#ShowSeparator (and others?) -- to avoid
-// breakage because of our separators machinations
-
 var MenuEdit = {
   customizeMenu: {},
   // Holds the original contents of menus. backups[menuID] is array of
@@ -721,10 +682,6 @@ var MenuEdit = {
     // anything new (see Note) will be left on here after moveToTemp+populateMenu
     var EM_menuPopup = this.el("EM_" + aPopup.id);
 
-    // xxx this is not needed unless we don't have Find New button in Options (?)
-    // This usually(always?) happens when called from Options and the menu
-    // in question wasn't edited yet. This early return shouldn't cause any
-    // problems except in rare and weird cases.
     if(!EM_menuPopup) return false;
 
     var childNodes = EM_menuPopup.childNodes;
@@ -746,17 +703,6 @@ var MenuEdit = {
   },
 
 
-  // -------- Hide consecutive separators code --------
-  // Since we allow user to create custom separators and to hide some of menu
-  // items, we can no longer rely on existing code managing separators'
-  // visibility correctly. We register a listener that runs each time a
-  // menupopup is shown, and in the listener we hide all consecutive separators
-  // based on current visibility of other items of the menu. To make sure our
-  // code runs after any other listeners messing with menu items visibility,
-  // we add onAfterPopupShown to the listener queue when handling popupshown
-  // for the first time.
-
-  // Note: do not assume this == MenuEdit
   onAfterPopupShown: function(e, aRestarted) {
     var popup = e.target;
 
