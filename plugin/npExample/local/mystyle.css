@@ -1,0 +1,43 @@
+li.directory{
+ list-style-image:url('foderClosed.jpg');
+}
+li.file{
+ list-style-image:url('file.jpg');
+}
+
+.level0{
+	padding-left: 0px;
+}
+.level1{
+	padding-left: 16px;
+}
+.level2{
+	padding-left: 32px;
+}
+.level3{
+	padding-left: 48px;
+}
+#main{
+    position:absolute; 
+    left: 0px;
+    right: 0px;
+    top:0px;
+    bottom: 5px;
+    overflow:hidden;
+}
+#top{
+    position:relative; 
+    border: 1px solid rgb(193, 193, 193);
+    width: 100%;
+    height: 10%;
+	
+}
+#result{
+    position:relative; 
+    margin-left:20px;
+    width: 171px;
+    height: 90%;
+    border-right: 1px solid rgb(193, 193, 193);
+    overflow: scroll;
+    white-space:nowrap
+}
