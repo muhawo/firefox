@@ -1,0 +1,146 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://mozapps/skin/pref/pref.css" type="text/css"?>
+<?xml-stylesheet href="chrome://mozapps/content/preferences/preferences.css"?>
+<?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css"?>
+<!DOCTYPE overlay SYSTEM "chrome://accessKey/locale/accessKey.dtd">
+
+<prefwindow id="accessKey-window" type="prefwindow"
+        title="&accessKey.settings.title;"
+        ondialogaccept="return true;"
+        buttons="accept,cancel"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml">
+<script type="application/x-javascript" src="chrome://accessKey/content/settings.js"/> 
+
+<prefpane id="pp_general" label="&accessKey.settings.general;" flex="1" style = "background:#FFFFFF;">
+    <preferences>
+        <preference id="pref_textFont" name="extensions.accessKey.display.textFont" type="string"/>
+        <preference id="pref_textSize" name="extensions.accessKey.display.textSize" type="string"/>
+        <preference id="pref_textColor" name="extensions.accessKey.display.textColor" type="string"/>
+        <preference id="pref_borderStyle" name="extensions.accessKey.display.borderStyle" type="string"/>
+        <preference id="pref_borderWidth" name="extensions.accessKey.display.borderWidth" type="string"/>
+        <preference id="pref_borderColor" name="extensions.accessKey.display.borderColor" type="string"/>
+        <preference id="pref_backgroundColor" name="extensions.accessKey.display.backgroundColor" type="string"/>
+        <preference id="pref_backgroundOpacity" name="extensions.accessKey.display.backgroundOpacity" type="string"/>
+    </preferences>
+
+    <vbox>
+         <groupbox>
+        	<hbox flex="1">
+            <groupbox>
+                <caption label="&accessKey.settings.textSetting;"/>
+				<vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" align="left">
+					<label control="textFont" accesskey="F">&accessKey.settings.textSetting.font;</label>
+					<menulist id="textFont" sizetopopup="pref" value="default" label="default" preference="pref_textFont" oncommand="accessKeySet.previewSet('textFont',this.value)">
+						<menupopup><menuitem value="default" label="default" selected="true"/><menuitem value="Aharoni" label="Aharoni"/><menuitem value="Andalus" label="Andalus"/><menuitem value="Angsana New" label="Angsana New"/>
+									<menuitem value="AngsanaUPC" label="AngsanaUPC"/><menuitem value="Aparajita" label="Aparajita"/>
+									<menuitem value="Arabic Typesetting" label="Arabic Typesetting"/><menuitem value="Arial" label="Arial"/><menuitem value="Batang" label="Batang"/>
+									<menuitem value="BatangChe" label="BatangChe"/><menuitem value="Browallia New" label="Browallia New"/>
+									<menuitem value="BrowalliaUPC" label="BrowalliaUPC"/><menuitem value="Buxton Sketch" label="Buxton Sketch"/>
+									<menuitem value="Calibri" label="Calibri"/><menuitem value="Cambria" label="Cambria"/><menuitem value="Cambria Math" label="Cambria Math"/>
+									<menuitem value="Candara" label="Candara"/><menuitem value="Comic Sans MS" label="Comic Sans MS"/><menuitem value="Consolas" label="Consolas"/>
+									<menuitem value="Constantia" label="Constantia"/><menuitem value="Corbel" label="Corbel"/><menuitem value="Cordia New" label="Cordia New"/>
+									<menuitem value="CordiaUPC" label="CordiaUPC"/><menuitem value="Courier New" label="Courier New"/><menuitem value="DFKai-SB" label="DFKai-SB"/>
+									<menuitem value="DaunPenh" label="DaunPenh"/><menuitem value="David" label="David"/><menuitem value="DilleniaUPC" label="DilleniaUPC"/>
+									<menuitem value="DokChampa" label="DokChampa"/><menuitem value="Dotum" label="Dotum"/><menuitem value="DotumChe" label="DotumChe"/>
+									<menuitem value="Ebrima" label="Ebrima"/><menuitem value="Estrangelo Edessa" label="Estrangelo Edessa"/>
+									<menuitem value="EucrosiaUPC" label="EucrosiaUPC"/><menuitem value="Euphemia" label="Euphemia"/><menuitem value="FrankRuehl" label="FrankRuehl"/>
+									<menuitem value="Franklin Gothic" label="Franklin Gothic"/><menuitem value="FreesiaUPC" label="FreesiaUPC"/>
+									<menuitem value="Gabriola" label="Gabriola"/><menuitem value="Gautami" label="Gautami"/><menuitem value="Georgia" label="Georgia"/>
+									<menuitem value="Gisha" label="Gisha"/><menuitem value="Gulim" label="Gulim"/><menuitem value="GulimChe" label="GulimChe"/>
+									<menuitem value="Gungsuh" label="Gungsuh"/><menuitem value="GungsuhChe" label="GungsuhChe"/><menuitem value="Impact" label="Impact"/>
+									<menuitem value="IrisUPC" label="IrisUPC"/><menuitem value="Iskoola Pota" label="Iskoola Pota"/><menuitem value="JasmineUPC" label="JasmineUPC"/>
+									<menuitem value="Kalinga" label="Kalinga"/><menuitem value="Kartika" label="Kartika"/><menuitem value="Khmer UI" label="Khmer UI"/>
+									<menuitem value="KodchiangUPC" label="KodchiangUPC"/><menuitem value="Kokila" label="Kokila"/><menuitem value="Lao UI" label="Lao UI"/>
+									<menuitem value="Latha" label="Latha"/><menuitem value="Leelawadee" label="Leelawadee"/><menuitem value="Levenim MT" label="Levenim MT"/>
+									<menuitem value="LilyUPC" label="LilyUPC"/><menuitem value="Lucida Console" label="Lucida Console"/>
+									<menuitem value="Lucida Sans Unicode" label="Lucida Sans Unicode"/><menuitem value="MS Gothic" label="MS Gothic"/>
+									<menuitem value="MS Mincho" label="MS Mincho"/><menuitem value="MS PGothic" label="MS PGothic"/><menuitem value="MS PMincho" label="MS PMincho"/>
+									<menuitem value="MS UI Gothic" label="MS UI Gothic"/><menuitem value="MV Boli" label="MV Boli"/>
+									<menuitem value="Malgun Gothic" label="Malgun Gothic"/><menuitem value="Mangal" label="Mangal"/><menuitem value="Meiryo" label="Meiryo"/>
+									<menuitem value="Meiryo UI" label="Meiryo UI"/><menuitem value="Microsoft Himalaya" label="Microsoft Himalaya"/>
+									<menuitem value="Microsoft JhengHei" label="Microsoft JhengHei"/><menuitem value="Microsoft New Tai Lue" label="Microsoft New Tai Lue"/>
+									<menuitem value="Microsoft PhagsPa" label="Microsoft PhagsPa"/><menuitem value="Microsoft Sans Serif" label="Microsoft Sans Serif"/>
+									<menuitem value="Microsoft Tai Le" label="Microsoft Tai Le"/><menuitem value="Microsoft Uighur" label="Microsoft Uighur"/>
+									<menuitem value="Microsoft Yi Baiti" label="Microsoft Yi Baiti"/><menuitem value="MingLiU" label="MingLiU"/>
+									<menuitem value="MingLiU-ExtB" label="MingLiU-ExtB"/><menuitem value="MingLiU_HKSCS" label="MingLiU_HKSCS"/>
+									<menuitem value="MingLiU_HKSCS-ExtB" label="MingLiU_HKSCS-ExtB"/><menuitem value="Miriam" label="Miriam"/>
+									<menuitem value="Miriam Fixed" label="Miriam Fixed"/><menuitem value="Mongolian Baiti" label="Mongolian Baiti"/>
+									<menuitem value="MoolBoran" label="MoolBoran"/><menuitem value="Narkisim" label="Narkisim"/><menuitem value="Nyala" label="Nyala"/>
+									<menuitem value="PMingLiU" label="PMingLiU"/><menuitem value="PMingLiU-ExtB" label="PMingLiU-ExtB"/>
+									<menuitem value="Palatino Linotype" label="Palatino Linotype"/><menuitem value="Plantagenet Cherokee" label="Plantagenet Cherokee"/>
+									<menuitem value="Raavi" label="Raavi"/><menuitem value="Rod" label="Rod"/><menuitem value="Sakkal Majalla" label="Sakkal Majalla"/>
+									<menuitem value="Segoe Marker" label="Segoe Marker"/><menuitem value="Segoe Print" label="Segoe Print"/>
+									<menuitem value="Segoe Script" label="Segoe Script"/><menuitem value="Segoe UI" label="Segoe UI"/>
+									<menuitem value="Segoe UI Symbol" label="Segoe UI Symbol"/><menuitem value="Shonar Bangla" label="Shonar Bangla"/>
+									<menuitem value="Shruti" label="Shruti"/><menuitem value="SimSun-ExtB" label="SimSun-ExtB"/>
+									<menuitem value="Simplified Arabic" label="Simplified Arabic"/><menuitem value="Simplified Arabic Fixed" label="Simplified Arabic Fixed"/>
+									<menuitem value="SketchFlow Print" label="SketchFlow Print"/><menuitem value="Sylfaen" label="Sylfaen"/><menuitem value="Tahoma" label="Tahoma"/>
+									<menuitem value="Times New Roman" label="Times New Roman"/><menuitem value="Traditional Arabic" label="Traditional Arabic"/>
+									<menuitem value="Trebuchet MS" label="Trebuchet MS"/><menuitem value="Tunga" label="Tunga"/><menuitem value="Utsaah" label="Utsaah"/>
+									<menuitem value="Vani" label="Vani"/><menuitem value="Verdana" label="Verdana"/><menuitem value="Vijaya" label="Vijaya"/>
+									<menuitem value="Vrinda" label="Vrinda"/><menuitem value="仿宋" label="仿宋"/><menuitem value="宋体" label="宋体"/>
+									<menuitem value="微软雅黑" label="微软雅黑"/><menuitem value="新宋体" label="新宋体"/><menuitem value="楷体" label="楷体"/>
+									<menuitem value="黑体" label="黑体"/></menupopup>
+					</menulist>
+					<label control="textSize" accesskey="S">&accessKey.settings.textSetting.size;</label>
+					<menulist id="textSize" sizetopopup="pref" value="default" label="default" preference="pref_textSize" oncommand="accessKeySet.previewSet('textSize',this.value)">
+						<menupopup><menuitem value="default" label="default" selected="true"/><menuitem value="9px" label="9"/><menuitem value="10px" label="10"/>
+									<menuitem value="11px" label="11"/><menuitem value="12px" label="12"/>
+									<menuitem value="13px" label="13"/><menuitem value="14px" label="14"/><menuitem value="15px" label="15"/><menuitem value="16px" label="16"/>
+									<menuitem value="17px" label="17"/><menuitem value="18px" label="18"/><menuitem value="20px" label="20"/><menuitem value="22px" label="22"/>
+									<menuitem value="24px" label="24"/><menuitem value="26px" label="26"/><menuitem value="28px" label="28"/><menuitem value="30px" label="30"/>
+									<menuitem value="32px" label="32"/><menuitem value="34px" label="34"/><menuitem value="36px" label="36"/><menuitem value="40px" label="40"/>
+									<menuitem value="44px" label="44"/><menuitem value="48px" label="48"/><menuitem value="56px" label="56"/><menuitem value="64px" label="64"/>
+									<menuitem value="72px" label="72"/></menupopup>
+					</menulist>
+					<label control="textColor" accesskey="T">&accessKey.settings.textSetting.textColor;</label>
+					<colorpicker id="textColor" preference="pref_textColor" palettename="standard" type="button" onchange="accessKeySet.previewSet('textColor',this.color)"/>
+				</vbox>
+			</groupbox>        
+            <groupbox >
+                <caption label="&accessKey.settings.borderSetting;"/>
+				<vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" align="left">
+					<label control="borderStyle" accesskey="y">&accessKey.settings.borderSetting.borderStyle;</label>
+					<menulist id="borderStyle" sizetopopup="pref" value="solid" label="solid" preference="pref_borderStyle" oncommand="accessKeySet.previewSet('borderStyle',this.value)">
+						<menupopup>
+							<menuitem value="none" label="none"/><menuitem value="hidden" label="hidden"/><menuitem value="dotted" label="dotted"/><menuitem value="dashed" label="dashed"/>
+							<menuitem value="solid" label="solid" selected="true"/><menuitem value="double" label="double"/><menuitem value="groove" label="groove"/><menuitem value="ridge" label="ridge"/>
+							<menuitem value="inset" label="inset"/><menuitem value="outset" label="outset"/>
+						</menupopup>
+					</menulist>
+					<label control="borderWidth" accesskey="W">&accessKey.settings.borderSetting.borderWidth;</label>
+					<menulist id="borderWidth" sizetopopup="pref" value="thin" label="thin" preference="pref_borderWidth" oncommand="accessKeySet.previewSet('borderWidth',this.value)">
+						<menupopup>
+							<menuitem value="thin" label="thin" selected="true"/><menuitem value="medium" label="medium"/><menuitem value="thick" label="thick"/>
+						</menupopup>
+					</menulist>
+					<label control="borderColor" accesskey="B">&accessKey.settings.borderSetting.borderColor;</label>
+					<colorpicker id="borderColor" preference="pref_borderColor" palettename="standard" type="button" onchange="accessKeySet.previewSet('borderColor',this.color)"/>
+				</vbox>
+			</groupbox>
+            <groupbox >
+                <caption label="&accessKey.settings.backgroundSetting;"/>
+				<vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" align="left">
+					<label control="backgroundColor" accesskey="C">&accessKey.settings.textSetting.backgroundColor;</label>
+					<colorpicker id="backgroundColor" preference="pref_backgroundColor" palettename="standard" type="button" onchange="accessKeySet.previewSet('backgroundColor',this.color)"/>
+					<!--<label control="backgroundOpacity" accesskey="O"><span xmlns="http://www.w3.org/1999/xhtml" class="accesskey">O</span>pacity:</label>
+					<textbox id = "backgroundOpacity" preference="pref_backgroundOpacity" style="max-width: 30px;" type="number" increment="0.1" min="0.0" max="1.0" decimalplaces="1" wraparound="true"/>-->
+				</vbox>
+			</groupbox>
+
+        </hbox>
+        <groupbox >
+            <caption label="&accessKey.settings.preview;"/>
+			<hbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+				<box flex='1'/>
+				<box id="previewBox" style="border: thin solid rgb(124,124,124);">AB</box>
+				<box flex='1'/>
+			</hbox>
+		</groupbox>
+         </groupbox>
+    </vbox>
+</prefpane>
+
+</prefwindow>

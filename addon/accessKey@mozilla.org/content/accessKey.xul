@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE overlay SYSTEM "chrome://accessKey/locale/accessKey.dtd">
+<?xml-stylesheet href="chrome://accessKey/skin/accessKey.css" type="text/css"?>
+<overlay id="accessKey" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript" src="chrome://accessKey/content/accessKey.js" />
+<toolbarpalette id="BrowserToolbarPalette">
+	<toolbarbutton id="accessKeyToggleDenD" class="toolbarbutton-1 chromeclass-toolbar-additional" label="AK"  
+								 oncommand="accessKeyMain.disable();" tooltiptext="&accessKey.toolbar.toggledend.tooltip;"/>
+</toolbarpalette>
+<menupopup id="menu_ToolsPopup">
+	<menuitem id="accessKeyMenu" class="menuitem-iconic" label="&accessKey.menu.title;" oncommand="accessKeyMain.openSettings();"/>
+</menupopup>
+</overlay>

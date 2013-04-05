@@ -1,0 +1,15 @@
+<!ENTITY accessKey.toolbar.toggledend.tooltip                        "AK On/Off">
+<!ENTITY accessKey.menu.title                                        "AK Settings">
+<!ENTITY accessKey.settings.title                                    "AK Settings">
+<!ENTITY accessKey.settings.general                                  "general">
+<!ENTITY accessKey.settings.textSetting                              "TEXT">
+<!ENTITY accessKey.settings.textSetting.font                         "Font :">
+<!ENTITY accessKey.settings.textSetting.size                         "Size :">
+<!ENTITY accessKey.settings.textSetting.textColor                    "Text color :">
+<!ENTITY accessKey.settings.borderSetting                            "BORDER">
+<!ENTITY accessKey.settings.borderSetting.borderStyle                "Style :">
+<!ENTITY accessKey.settings.borderSetting.borderWidth                "Width :">
+<!ENTITY accessKey.settings.borderSetting.borderColor                "Border color :">
+<!ENTITY accessKey.settings.backgroundSetting                        "BACKGROUND">
+<!ENTITY accessKey.settings.textSetting.backgroundColor              "Color :">
+<!ENTITY accessKey.settings.preview                                  "PREVIEW">

@@ -1,0 +1,8 @@
+#accessKeyToggleDenD {list-style-image: url('chrome://accessKey/skin/ak24.png');}
+toolbar[iconsize="small"] #accessKeyToggleDenD {list-style-image: url('chrome://accessKey/skin/ak16.png');}
+#accessKeyToggleDenD[AKstate="false"] {list-style-image: url('chrome://accessKey/skin/ak24Grey.png');}
+toolbar[iconsize="small"] #accessKeyToggleDenD[AKstate="false"] {list-style-image: url('chrome://accessKey/skin/ak16Grey.png');}
+
+#accessKeyMenu {list-style-image: url('chrome://accessKey/skin/ak16.png');}
+
+
