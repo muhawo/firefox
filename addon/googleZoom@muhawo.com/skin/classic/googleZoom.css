@@ -1,0 +1,9 @@
+#googleZoomToggleDenD {list-style-image: url('chrome://googleZoom/skin/zoom_24+.png');}
+toolbar[iconsize="small"] #googleZoomToggleDenD {list-style-image: url('chrome://googleZoom/skin/zoom_16+.png');}
+#googleZoomToggleDenD[zoom="false"] {list-style-image: url('chrome://googleZoom/skin/zoom_24-.png');}
+toolbar[iconsize="small"] #googleZoomToggleDenD[zoom="false"] {list-style-image: url('chrome://googleZoom/skin/zoom_16-.png');}
+
+#googleZoomMenu[zoom="true"] {list-style-image: url('chrome://googleZoom/skin/zoom_16+.png');}
+#googleZoomMenu[zoom="false"] {list-style-image: url('chrome://googleZoom/skin/zoom_16-.png');}
+
+

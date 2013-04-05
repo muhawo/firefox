@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE overlay SYSTEM "chrome://googleZoom/locale/googleZoom.dtd">
+<?xml-stylesheet href="chrome://googleZoom/skin/googleZoom.css" type="text/css"?>
+<overlay id="googleZoom" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript" src="chrome://googleZoom/content/googleZoom.js" />
+<toolbarpalette id="BrowserToolbarPalette">
+	<toolbarbutton id="googleZoomToggleDenD" class="toolbarbutton-1 chromeclass-toolbar-additional" zoom="true" label="zoom" oncommand="googleZoom.enableZoom();" tooltiptext="&googleZoom.toolbar.toggledend.tooltip;"/>
+</toolbarpalette>
+<menupopup id="menu_ToolsPopup">
+	<menuitem id="googleZoomMenu" class="menuitem-iconic" label="&googleZoom.menu.title;" zoom="true" oncommand="googleZoom.enableZoom();"/>
+</menupopup>
+</overlay>
