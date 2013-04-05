@@ -1,0 +1,16 @@
+      <window id="main-window">   
+        <keyset>
+          <key modifiers="alt,control" key="F" oncommand="document.getElementById('thebox').hidden=!document.getElementById('thebox').hidden;"/>
+        </keyset>
+       
+          <box id="thebox" hidden="true" style="position:fixed;top:500px;left:500px;">
+             <stack>
+                <browser/>
+                <hbox id="overall">
+                   <button label="111" style="-moz-appearance:none; background:blue;"/>
+                   <button label="22222222" style="-moz-appearance:none; background:red;"/>
+                </hbox>
+             </stack>
+          </box>
+         
+      </window>

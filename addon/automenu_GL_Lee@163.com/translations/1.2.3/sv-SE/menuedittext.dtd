@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Inställningar för Menu Editor">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "Redigera meny">
+<!ENTITY pRightTree.label "Tillgängliga kommandon">
+<!ENTITY pVisibileCheckbox.label "Synliga">
+<!ENTITY pVisibileCheckbox.accesskey "S">
+<!ENTITY pLabelCol.label "Identifiering">
+<!ENTITY pVisibilityCol.label "Synlig">
+<!ENTITY pPalette.label "Palett">
+<!ENTITY pPaletteColumn.label "Tillgänglig poster">
+<!ENTITY pNewSeparator.label "&lt;Ny avskiljare&gt;">
+<!ENTITY pHide.label "Dölj">
+<!ENTITY pShow.label "Visa">
+<!ENTITY pRemove.label "Ta bort">
+<!ENTITY pHide.accesskey "D">
+<!ENTITY pShow.accesskey "V">
+<!ENTITY pRemove.accesskey "T">
+<!ENTITY pReset.label "Återställ">
+<!ENTITY pReset.accesskey "Å">
+<!ENTITY pResetTip.label "Återställ denna meny till standardinställningar (plus alla tillägg)">
+<!ENTITY pResetAll.label "Återställ alla">
+<!ENTITY pResetAll.accesskey "Å">
+<!ENTITY pApply.label "Verkställ">
+<!ENTITY pApply.accesskey "V">
+<!ENTITY oMenuitem.label "Anpassa menyer...">
+<!ENTITY oMenuitem.accesskey "s">
+<!ENTITY oMEoptions.commandkey "s">

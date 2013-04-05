@@ -1,0 +1,57 @@
+<!-- Options window -->
+<!ENTITY  pTitle.label  "Options for Menu Editor">
+
+<!-- Default width and height of the ME Options window -->
+<!ENTITY  pWidth  "370">
+<!ENTITY  pHeight "480">
+
+<!ENTITY  pLeftTree.label  "Edit menu">
+<!ENTITY  pRightTree.label "Available menu items">
+
+<!ENTITY  pVisibileCheckbox.label  "Visible">
+<!ENTITY  pVisibileCheckbox.accesskey  "V">
+
+<!ENTITY  pLabelCol.label  "Identification">
+<!ENTITY  pVisibilityCol.label  "Visible">
+
+<!ENTITY  pPalette.label "Palette">
+<!ENTITY  pPaletteColumn.label  "Available items">
+<!ENTITY  pNewSeparator.label  "&lt;New separator&gt;">
+
+<!ENTITY  pHide.label  "Hide">
+<!ENTITY  pShow.label  "Show">
+<!ENTITY  pRemove.label "Remove">
+<!ENTITY  pHide.accesskey "H">
+<!ENTITY  pShow.accesskey "S">
+<!ENTITY  pRemove.accesskey "e">
+
+<!--ENTITY  pFindNew.label  "Find New">
+<!ENTITY  pFindTip.label  "Find new menu items that weren't automatically detected (e.g. from other extensions)"-->
+
+<!ENTITY  pReset.label "Reset">
+<!ENTITY  pReset.accesskey "R">
+<!ENTITY  pResetTip.label "Reset this menu to the default configuration (plus any extension additions)">
+<!ENTITY  pResetAll.label "Reset All">
+<!ENTITY  pResetAll.accesskey "A">
+
+<!ENTITY  pApply.label  "Apply">
+<!ENTITY  pApply.accesskey  "p">
+
+<!-- Overlay -->
+<!ENTITY  oMenuitem.label  "Customize Menus...">
+<!ENTITY  oMenuitem.accesskey "s">
+<!ENTITY  oMEoptions.commandkey "s">
+
+<!ENTITY dialog.title             "Customize Toolbar">
+<!ENTITY dialog.dimensions        "width: 92ch; height: 36em;">
+<!ENTITY instructions.description "You can add or remove items by dragging to or from the toolbars.">
+<!ENTITY show.label               "Show:">
+<!ENTITY iconsAndText.label       "Icons and Text">
+<!ENTITY icons.label              "Icons">
+<!ENTITY text.label               "Text">
+<!ENTITY useSmallIcons.label      "Use Small Icons">
+<!ENTITY restoreDefaultSet.label  "Restore Default Set">
+<!ENTITY addNewToolbar.label      "Add New Toolbar">
+<!ENTITY saveChanges.label        "Done">
+<!ENTITY undoChanges.label        "Undo Changes">
+<!ENTITY toolbuttonAddRemove.label        "Add/Remove">

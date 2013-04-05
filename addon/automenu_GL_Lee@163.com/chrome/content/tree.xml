@@ -1,0 +1,496 @@
+<?xml version="1.0"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Menu Editor.
+   -
+   - The Initial Developer of the Original Code is
+   - Nickolay Ponomarev.
+   - Portions created by the Initial Developer are Copyright (C) 2004-2005
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -    Devon Jensen <velcrospud@hotmail.com>
+   -    Nickolay Ponomarev <asqueella@gmail.com>
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<!-- This file declares a wrapper for xul:tree built from RDF datasource that 
+   - allows user to edit its contents via drag-and-drop. Not intended to be 
+   - used outside of Menu Editor's Options window. -->
+
+<!DOCTYPE dialog SYSTEM "chrome://automenu_GL/locale/menuedittext.dtd">
+
+<bindings id="menueditorBindings"
+          xmlns="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:xbl="http://www.mozilla.org/xbl">
+  
+<binding id="menueditor">
+<xbl:content xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <tree flex="1"
+        datasources="rdf:null" ref="NC:none" flags="dont-build-content"
+        onkeypress="this.parentNode.onKeyPress(event);"
+        onmousedown="this.parentNode.onMouseDown(event);"
+        ondblclick="this.parentNode.onTreeDblClick();"
+        ondraggesture="this.parentNode.onDragGesture(event);"
+        onselect="this.view.selectionChanged();">
+    <template>
+      <rule rdf:type="http://home.netscape.com/NC-rdf#BookmarkSeparator">
+        <treechildren>
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell properties="separator"/>
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+      <!-- Submenu -->
+      <rule rdf:type="http://home.netscape.com/NC-rdf#Menu">
+        <treechildren>
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell label="rdf:http://home.netscape.com/NC-rdf#Name"
+                        properties="container"/>
+              <treecell properties="rdf:http://home.netscape.com/NC-rdf#Visibility"/>
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+      <!-- Regular menuitem -->
+      <rule rdf:type="http://home.netscape.com/NC-rdf#Menuitem">
+        <treechildren>
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell label="rdf:http://home.netscape.com/NC-rdf#Name"/>
+              <treecell properties="rdf:http://home.netscape.com/NC-rdf#Visibility"/>
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+      <!-- Another possible type is http://home.netscape.com/NC-rdf#Other -->
+    </template>
+
+    <!-- this leads to 2 treecol's with id=Name in the document, but otherwise
+         selection with mouse wouldn't work in Gecko 1.7. Using xbl:inherits for
+         id on the second column leads to the column pickers not working in Gecko 1.7 :( -->
+    <treecols>
+      <treecol id="Name" label="&pLabelCol.label;"
+               flex="1" primary="true" fixed="false"
+               class="sortDirectionIndicator"
+               sort="rdf:http://home.netscape.com/NC-rdf#Name"
+               sortActive="true" sortDirection="none"/>
+      <splitter class="tree-splitter"/>
+      <treecol xbl:inherits="id=col2,hidden=col2hidden"
+               label="&pVisibilityCol.label;"/>
+    </treecols>
+  </tree>
+</xbl:content>
+  
+<implementation>
+  <field name="mTree"/>
+  <field name="mBuilder"/>
+
+  <property name="mSelection" readonly="true" 
+      onget="return this.mTree.view.selection;"/>  <!-- nsITreeSelection -->
+  <property name="canToggleVisibility" readonly="true">
+    <getter><![CDATA[
+      if(!this.mTree.view) return false;
+      if("columns" in this.mTree) { // Gecko 1.8
+        var col = this.mTree.columns["Vis"] || this.mTree.columns["Vis2"];
+        return !col.element.hidden;
+      } else { // Gecko 1.7
+        // double click always works in the left tree and never in the right
+        return this.id == "maintree";
+      }
+      return false;
+    ]]></getter>
+  </property>
+
+  <property name="selectionArray">
+    <getter><![CDATA[
+    var result = [];
+    try {
+      var rangeCount = this.mSelection.getRangeCount();
+      // workaround for bug 171547: if rowCount==0, rangeCount==1
+      if (this.mBuilder.rowCount > 0)
+      for (var i=0; i<rangeCount; i++) {
+        var rangeMin = {};
+        var rangeMax = {};
+        this.mSelection.getRangeAt(i, rangeMin, rangeMax);
+        for (var j=rangeMin.value; j<=rangeMax.value; j++) {
+          var selectedItem = this.mBuilder.getResourceAtIndex(j);
+          result.push(selectedItem);
+        }
+      }
+    } catch(e) { util.dumpException(e); }
+    return result;
+    ]]></getter>
+    
+    <!-- reset sel. to items passed as param -->
+    <setter><![CDATA[
+    this.mSelection.clearSelection();
+    for (var i=0; i<val.length; i++) {
+      var index = this.mBuilder.getIndexOfResource(val[i]);
+      if (index != -1)
+        this.mSelection.toggleSelect(index);
+    }]]></setter>
+  </property>
+
+  <field name="DNDObserver"><![CDATA[({
+  tree: this,
+  onDragStart: function(aEvent, aXferData, aDragAction) {
+    aXferData.data = MyDNDUtils.getXferDataFromSelection(this.tree.selectionArray);
+  }
+  })]]></field>
+
+  <field name="builderObserver"><![CDATA[({
+  tree: this,
+  dragService: util.getService("widget/dragservice;1", "nsIDragService"),
+  DROP_AFTER_OLD: Components.interfaces.nsITreeView.inDropAfter,
+  DROP_AFTER: Components.interfaces.nsITreeView.DROP_AFTER,
+
+  // Gecko 1.7
+  canDropOn: function(aIndex) {
+    return false;
+  },
+  canDropBeforeAfter: function(aIndex, aBefore) {
+    return this.dragService.getCurrentSession() != null;
+  },
+
+  // Gecko 1.8
+  canDrop: function(aIndex, aOrientation) {
+    return aOrientation != Components.interfaces.nsITreeView.DROP_ON &&
+           this.dragService.getCurrentSession() != null;
+  },
+
+  // onDrop:
+  //  aRow - # of a row to drop on;
+  //  aOrientation - drop before/after
+  onDrop: function(aRow, aOrientation) {
+    var dragSession = this.dragService.getCurrentSession();
+    if(!dragSession)
+      return;
+      
+    // an array of |nsIRDFResource|s that correspond to dropped items
+    var selection = MyDNDUtils.getSelectionFromXferData(dragSession);
+    // We assume the selection is not empty and all elements are in the same
+    // RDF container (that is, in the same menu).
+    try {
+      var srcRootCont = RDF.getContainerForResource(selection[0]);
+      var srcRoot = srcRootCont.Resource;
+    } catch(e) { // the item may not be in a container yet, eg. new separator
+    }
+
+    // |nsIRDFResource| for the item we drop on
+    var targetItem = this.tree.mBuilder.getResourceAtIndex(aRow);
+    var destRoot = this.tree.mTree.resource;
+    var destRootCont = RDF.makeContainer(destRoot);
+
+    Tree.mSelection.selectEventsSuppressed = true;//xxx
+    //DS.beginUpdateBatch();
+    try {
+      // The following code is relatively complex because we want to deal with
+      // multiple selection correctly.
+      for(var i=0; i<selection.length; i++) {
+        if(targetItem != selection[i]) {
+          if(srcRootCont)
+            srcRootCont.RemoveElement(selection[i], true);
+        } else
+          aOrientation = this.DROP_AFTER;
+      }
+      var idx = RDF.contUtils.indexOf(DS, destRoot, targetItem);
+      if(aOrientation == this.DROP_AFTER || aOrientation == this.DROP_AFTER_OLD)
+        idx++;
+      for(i=0; i<selection.length; i++, idx++) {
+        if(selection[i] != targetItem)
+          destRootCont.InsertElementAt(selection[i], idx, true);
+      }
+    } catch(e) { util.dumpException(e); }
+    //DS.endUpdateBatch();
+    this.tree.selectionArray = selection;
+    // use of a timer to speedup
+    setTimeout(function(tree){tree.mSelection.selectEventsSuppressed = false}, 100, Tree)
+    Dialog.changed = true;
+  },
+
+  onSelectionChanged: function() {
+    var event = document.createEvent("Events");
+    event.initEvent("automenu_GL-selectitem", true, false);
+    // Use setTimeout so that the focus gets set correctly by the time
+    // the event is dispatched (for show/hide button disabling to work)
+    setTimeout(function(tree, event) { tree.dispatchEvent(event); }, 
+      0, this.tree, event);
+  },
+
+
+  onToggleOpenState    : function (aRow)                           {},
+  onCycleHeader        : function (aColumnID, aHeaderElement)      {},
+  onCycleCell          : function (aItemIndex, aColumnID)          {},
+  isEditable           : function (aItemIndex, aColumnID)          {},
+  onSetCellText        : function (aItemIndex, aColumnID, aValue)  {},
+  onPerformAction      : function (aAction)                        {},
+  onPerformActionOnRow : function (aAction, aItemIndex)            {},
+  onPerformActionOnCell: function (aAction, aItemIndex, aColumnID) {}
+  })]]></field>
+
+  <method name="init">
+    <body><![CDATA[
+    this.mTree = document.getAnonymousNodes(this)[0];
+    this.mBuilder = util.QI(this.mTree.builder, "nsIXULTreeBuilder");
+    
+    this.mBuilder.addObserver(this.builderObserver); // setup DnD observer
+    this.mTree.database.AddDataSource(DS);
+    ]]>
+    </body>
+  </method>
+  
+  <method name="uninit">
+    <body><![CDATA[
+    this.mTree.database.RemoveDataSource(DS);
+    this.mBuilder.removeObserver(this.builderObserver);
+    ]]></body>
+  </method>
+
+  <method name="update">
+    <parameter name="aMenuSelector"/>
+    <body><![CDATA[
+      this.mTree.setAttribute("ref", aMenuSelector.currPopupResource);
+      this.mBuilder.rebuild();
+      if(this.mBuilder.rowCount == 0) // first time
+        doReset(aMenuSelector);
+
+      try {
+        this.mSelection.select(0);
+      } catch(e) {
+        d(e);
+      }
+    ]]></body>
+  </method>
+
+  <method name="onMouseDown">
+    <parameter name="aEvent"/>
+    <body><![CDATA[
+    //toggles items' visibility in response to clicking on the visibility cell
+    if(aEvent.target.localName != "treechildren") return;
+    if((aEvent.detail & 1) != 1) return; // to prevent double clicks (in fact it's doToggle that needs improving)
+    var row = {}, col = {}, type = {};
+    this.mTree.treeBoxObject.getCellAt(aEvent.clientX, aEvent.clientY, row, col, type);
+    var colId = "columns" in this.mTree ? col.value.id   // Gecko 1.8
+                                        : col.value;     // Gecko 1.7
+    if(colId.substr(0,3) == "Vis" && !aEvent.ctrlKey && !aEvent.shiftKey) {
+      var item = this.mBuilder.getResourceAtIndex(row.value);
+      doToggleShow(this, [item]);
+    }
+    ]]></body>
+  </method>
+  
+  <method name="onTreeDblClick">
+    <body><![CDATA[
+    if(this.canToggleVisibility)
+      Dialog.showHide(this);
+    ]]></body>
+  </method>
+
+  <method name="onKeyPress">
+    <parameter name="aEvent"/>
+    <body><![CDATA[
+    // this is not exactly good, since <space> is used to select in trees..
+    if(this.canToggleVisibility && aEvent.charCode == aEvent.DOM_VK_SPACE)
+      Dialog.showHide(this);
+    ]]></body>
+  </method>
+
+  <method name="onDragGesture">
+    <parameter name="aEvent"/>
+    <body><![CDATA[
+    if (aEvent.target.localName == "treechildren")
+      nsDragAndDrop.startDrag(aEvent, this.DNDObserver);
+    ]]></body>
+  </method>
+
+</implementation>
+</binding>
+
+<binding id="GL_toolbardecoration" extends="chrome://global/content/bindings/toolbar.xml#toolbardecoration">
+  <implementation implements="nsIAccessibleProvider">
+    <property name="accessibleType" readonly="true">
+      <getter>
+        return Components.interfaces.nsIAccessibleProvider.XULToolbarSeparator;
+      </getter>
+    </property>
+  </implementation>
+</binding>
+
+<!--=========================================================================-->
+<!-- xxx move palette code here-->
+
+
+
+
+<!--=========================================================================-->
+
+<binding id="menuselector">
+<xbl:content xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <menulist oncommand="this.parentNode.editMenu();">
+    <menupopup datasources="rdf:null" ref="NC:MenuEditRoot"  flags="dont-recurse">
+      <template>
+        <rule>
+          <menuitem uri="rdf:*" label="rdf:http://home.netscape.com/NC-rdf#Name"/>
+        </rule>
+      </template>
+      <menuitem label="&pPalette.label;" class="palette"/>
+      <menuseparator class="palette"/>
+    </menupopup>
+  </menulist>
+</xbl:content>
+
+<implementation>
+  <!-- nsIRDFResource for current menu (with URI like NC:menu_viewPopup) -->
+  <field name="currRes">null</field>
+  
+  <!-- ID of that menu -->
+  <field name="currId">""</field>
+  <field name="currPopupResource">""</field>
+
+  <property name="selectedIndex"
+    onget="return this.menuSelector.selectedIndex;">
+    <setter>
+      this.menuSelector.selectedIndex = val;
+      this.editMenu();
+    </setter>
+  </property>
+
+  <property name="popupNodes" onget="return this.menuPopup.childNodes;"/>
+
+  <method name="init">
+    <body><![CDATA[
+    this.menuSelector = document.getAnonymousNodes(this)[0];
+    this.menuPopup = this.menuSelector.firstChild;
+
+    this.menuPopup.database.AddDataSource(DS);
+    this.menuPopup.builder.rebuild();
+    ]]></body>
+  </method>
+
+  <method name="uninit">
+    <body>this.menuPopup.database.RemoveDataSource(DS);</body>
+  </method>
+
+  <!-- update the tree to match the selected item in menuselector -->
+  <method name="editMenu">
+    <body><![CDATA[
+    var index = this.selectedIndex-2;
+    // xxx get rid of "menuSelector2"-specific code
+    if(index < 1)
+    {
+      if(this.id == "menuSelector2") {
+        Dialog.el("deck").selectedIndex = 0;
+        var palette = Dialog.el("palette");
+        if(palette.view)
+          palette.view.selection.select(0);
+      }
+      return;
+    }
+    if(this.id == "menuSelector2")
+      Dialog.el("deck").selectedIndex = 1;
+
+    // xxx get the id from child.id instead
+    var root = RDF.getResource("NC:MenuEditRoot");
+    var menu_res = RDF.getChild(root, index);
+    this.currPopupResource = MenuEditCommon.QI(menu_res, "nsIRDFResource").Value;
+    this.currId = RDF.getResourceId(menu_res);
+
+    var resQName = RDF.menuToRDFResource(this.currId);
+    this.currRes = RDF.getResource(resQName);
+    RDF.makeContainer(this.currRes); // makes sure the resource exists
+    
+    var tree = document.getElementById(this.getAttribute("tree"));
+    if(tree)
+      tree.update(this);
+
+    if(this.id == "menuSelector")
+    
+      Dialog.checkMenuVis();
+    ]]></body>
+  </method>
+</implementation>
+</binding>
+
+
+<binding id="tipBox">
+<xbl:content xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+      <box >
+         <stack>
+            <browser/>
+	  	  	<image id="tipImage"/>
+         </stack>
+      </box>
+</xbl:content>
+</binding>
+
+<binding id="popups">
+<xbl:content xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<box>
+ <stack>
+  	<vbox id = "popupsBox"
+  		datasources="RDF:null"
+        xmlns:NC="http://home.netscape.com/NC-rdf#"
+ 		xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        ref="NC:MenuEditRoot">
+	  <template>
+		<rule NC:Visibility = "hidden">
+		</rule>
+		<rule RDF:type="http://home.netscape.com/NC-rdf#Menuitem">
+    		<menuitem uri="rdf:*" class="tMenuitem" label="rdf:http://home.netscape.com/NC-rdf#Name"  oncommand="autoShowMenu.doCommand(this);"/>
+		</rule>
+		<rule RDF:type="http://home.netscape.com/NC-rdf#BookmarkSeparator">
+    		<menuseparator/>
+		</rule>
+		<rule>
+    		<menupopup uri="RDF:*" onmouseover="(function(event){
+    			if(event.target==event.currentTarget){
+    				autoShowMenu.inTipBoxFlg = false;
+    				autoShowMenu.inPopupFlg = true;
+    				autoShowMenu.i = (++autoShowMenu.i)%2;
+    			}
+    			})(event);"
+    			onmouseout="autoShowMenu.mouseout(event);"
+    			onpopuphiding="function(){
+    			    autoShowMenu.inTipBoxFlg = false;
+    				autoShowMenu.inPopupFlg = false;
+    				autoShowMenu.i = 0;
+				};"
+			/>
+		</rule>
+	  </template>
+	</vbox>
+ </stack>
+ </box>
+</xbl:content>
+</binding>
+</bindings>

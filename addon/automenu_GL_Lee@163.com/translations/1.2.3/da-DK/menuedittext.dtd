@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Indstillinger for Menu Editor">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "Rediger menu">
+<!ENTITY pRightTree.label "Tilgængelige menu punkter">
+<!ENTITY pVisibileCheckbox.label "Synlig">
+<!ENTITY pVisibileCheckbox.accesskey "S">
+<!ENTITY pLabelCol.label "Identifikation">
+<!ENTITY pVisibilityCol.label "Synlig">
+<!ENTITY pPalette.label "Palet">
+<!ENTITY pPaletteColumn.label "Tilgængelige punkter">
+<!ENTITY pNewSeparator.label "&lt;Ny separator&gt;">
+<!ENTITY pHide.label "Skjul">
+<!ENTITY pShow.label "Vis">
+<!ENTITY pRemove.label "Fjern">
+<!ENTITY pHide.accesskey "S">
+<!ENTITY pShow.accesskey "V">
+<!ENTITY pRemove.accesskey "F">
+<!ENTITY pReset.label "Nulstil">
+<!ENTITY pReset.accesskey "N">
+<!ENTITY pResetTip.label "Gendan dette menu til standard indstillinger (plus alle uddvidelses tilføjelser)">
+<!ENTITY pResetAll.label "Nulstil Alt">
+<!ENTITY pResetAll.accesskey "A">
+<!ENTITY pApply.label "Anvend">
+<!ENTITY pApply.accesskey "d">
+<!ENTITY oMenuitem.label "Tilpas Menuer...">
+<!ENTITY oMenuitem.accesskey "s">
+<!ENTITY oMEoptions.commandkey "s">

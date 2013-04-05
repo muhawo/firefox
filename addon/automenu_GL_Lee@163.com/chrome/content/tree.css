@@ -1,0 +1,69 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* set up the binding for "editable menu" */
+menueditor {
+  -moz-binding: url("chrome://automenu_GL/content/tree.xml#menueditor");
+}
+
+menuselector {
+  -moz-binding: url("chrome://automenu_GL/content/tree.xml#menuselector");
+}
+GL_toolbarpaletteitem {
+  -moz-binding: url("chrome://automenu_GL/content/tree.xml#GL_toolbardecorationGL_toolbardecoration");
+}
+
+tipBox {
+  -moz-binding: url("chrome://automenu_GL/content/tree.xml#tipBox");
+}
+popups {
+  -moz-binding: url("chrome://automenu_GL/content/tree.xml#popups");
+}
+.menuItem a {color: #9f423b; text-decoration: none;}
+.menuItem a:hover {color: #9f423b; text-decoration: none; border-bottom: 4px dotted #9f423b;}
+.popupVbox {
+  border: 3px solid transparent;
+  -moz-border-top-colors   : ThreeDLightShadow ThreeDHighlight ThreeDFace;
+  -moz-border-left-colors  : ThreeDLightShadow ThreeDHighlight ThreeDFace;
+  -moz-border-right-colors : ThreeDDarkShadow  ThreeDShadow    ThreeDFace;
+  -moz-border-bottom-colors: ThreeDDarkShadow  ThreeDShadow    ThreeDFace;
+  padding: 0px;
+  min-width: 1px;
+  background: Menu;
+  color: MenuText;
+    -moz-appearance: menupopup;
+display: -moz-popup;
+z-index: 2147483647;
+text-shadow: none;
+-moz-user-focus: ignore;
+-moz-user-select: -moz-none;
+display: -moz-box;
+-moz-box-sizing: border-box;  
+  }
+.tMenuitem{
+    -moz-appearance: menuitem;
+ }
+ 
+
+/* Do not show the "palette" item in the left drop-down. I don't know of
+   a cleaner way to do that; xbl:children doesn't work right */
+#menuSelector .palette {
+  display: none;
+}
+
+/* xxx 1) use icons from Cute Menus if possible
+       2) find a generic menuitem/menu icon
+treechildren:-moz-tree-image {
+  list-style-image: ... ;
+} */
+
+/* 
+   The enabled.png and disabled.png glyphs are taken (with permission) 
+   from All-in-One Gestures extension by Marc Boullet
+*/
+treechildren:-moz-tree-image(visible)  {
+  list-style-image: url("enabled.png");
+}
+
+treechildren:-moz-tree-image(hidden)  {
+  list-style-image: url("disabled.png");
+}

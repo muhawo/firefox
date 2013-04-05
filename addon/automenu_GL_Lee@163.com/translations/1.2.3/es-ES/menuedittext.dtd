@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Opciones de Menu Editor">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "Editar menú">
+<!ENTITY pRightTree.label "Elementos de menú disponibles">
+<!ENTITY pVisibileCheckbox.label "Visible">
+<!ENTITY pVisibileCheckbox.accesskey "V">
+<!ENTITY pLabelCol.label "Identificación">
+<!ENTITY pVisibilityCol.label "Visible">
+<!ENTITY pPalette.label "Paleta">
+<!ENTITY pPaletteColumn.label "Elementos disponibles">
+<!ENTITY pNewSeparator.label "&lt;Nuevo separador&gt;">
+<!ENTITY pHide.label "Ocultar">
+<!ENTITY pShow.label "Ver">
+<!ENTITY pRemove.label "Borrar">
+<!ENTITY pHide.accesskey "O">
+<!ENTITY pShow.accesskey "V">
+<!ENTITY pRemove.accesskey "B">
+<!ENTITY pReset.label "Restablecer">
+<!ENTITY pReset.accesskey "R">
+<!ENTITY pResetTip.label "Restablecer este menú a la configuración por defecto">
+<!ENTITY pResetAll.label "Restablecer todo">
+<!ENTITY pResetAll.accesskey "t">
+<!ENTITY pApply.label "Aplicar">
+<!ENTITY pApply.accesskey "p">
+<!ENTITY oMenuitem.label "Personalizar menús ...">
+<!ENTITY oMenuitem.accesskey "s">
+<!ENTITY oMEoptions.commandkey "s">

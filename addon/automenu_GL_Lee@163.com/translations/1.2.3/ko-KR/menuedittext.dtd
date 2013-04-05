@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Menu Editor 설정">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "메뉴 편집">
+<!ENTITY pRightTree.label "이용 가능한 메뉴 항목">
+<!ENTITY pVisibileCheckbox.label "표시 (V)">
+<!ENTITY pVisibileCheckbox.accesskey "V">
+<!ENTITY pLabelCol.label "이름">
+<!ENTITY pVisibilityCol.label "표시">
+<!ENTITY pPalette.label "팔레트">
+<!ENTITY pPaletteColumn.label "이용 가능한 항목">
+<!ENTITY pNewSeparator.label "&lt;새 분리대&gt;">
+<!ENTITY pHide.label "숨김 (H)">
+<!ENTITY pShow.label "보임 (S)">
+<!ENTITY pRemove.label "없앰 (E)">
+<!ENTITY pHide.accesskey "H">
+<!ENTITY pShow.accesskey "S">
+<!ENTITY pRemove.accesskey "E">
+<!ENTITY pReset.label "리셋 (R)">
+<!ENTITY pReset.accesskey "R">
+<!ENTITY pResetTip.label "이 메뉴를 기본 구성으로 리셋 (추가한 확장 기능도 포함)">
+<!ENTITY pResetAll.label "모두 리셋 (A)">
+<!ENTITY pResetAll.accesskey "A">
+<!ENTITY pApply.label "적용 (P)">
+<!ENTITY pApply.accesskey "P">
+<!ENTITY oMenuitem.label "메뉴 사용자 정의 (S)...">
+<!ENTITY oMenuitem.accesskey "S">
+<!ENTITY oMEoptions.commandkey "S">

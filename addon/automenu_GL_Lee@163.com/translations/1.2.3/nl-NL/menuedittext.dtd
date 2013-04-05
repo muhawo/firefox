@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Opties voor Menu Editor">
+<!ENTITY pWidth "480">
+<!ENTITY pHeight "640">
+<!ENTITY pLeftTree.label "Menu wijzigen">
+<!ENTITY pRightTree.label "Beschikbare menu items">
+<!ENTITY pVisibileCheckbox.label "Weergeven">
+<!ENTITY pVisibileCheckbox.accesskey "W">
+<!ENTITY pLabelCol.label "Menu item">
+<!ENTITY pVisibilityCol.label "Weergeven">
+<!ENTITY pPalette.label "Palet">
+<!ENTITY pPaletteColumn.label "Beschikbare items">
+<!ENTITY pNewSeparator.label "&lt;Nieuwe scheidingslijn&gt;">
+<!ENTITY pHide.label "Verbergen">
+<!ENTITY pShow.label "Weergeven">
+<!ENTITY pRemove.label "Verwijderen">
+<!ENTITY pHide.accesskey "V">
+<!ENTITY pShow.accesskey "W">
+<!ENTITY pRemove.accesskey "V">
+<!ENTITY pReset.label "Herstellen">
+<!ENTITY pReset.accesskey "H">
+<!ENTITY pResetTip.label "Herstelt dit menu naar de standaard instellingen (incl. extensie toevoegingen)">
+<!ENTITY pResetAll.label "Alles herstellen">
+<!ENTITY pResetAll.accesskey "A">
+<!ENTITY pApply.label "Toepassen">
+<!ENTITY pApply.accesskey "T">
+<!ENTITY oMenuitem.label "Menu&apos;s aanpassen...">
+<!ENTITY oMenuitem.accesskey "s">
+<!ENTITY oMEoptions.commandkey "M">

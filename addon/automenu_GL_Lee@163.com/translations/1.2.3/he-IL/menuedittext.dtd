@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "אפשרויות Menu Editor">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "ערוך תפריט">
+<!ENTITY pRightTree.label "פריטי תפריט זמינים">
+<!ENTITY pVisibileCheckbox.label "זמין">
+<!ENTITY pVisibileCheckbox.accesskey "V">
+<!ENTITY pLabelCol.label "זהות">
+<!ENTITY pVisibilityCol.label "זמין">
+<!ENTITY pPalette.label "פלטה">
+<!ENTITY pPaletteColumn.label "פריטים זמינים">
+<!ENTITY pNewSeparator.label "&lt;מפריד חדש&gt;">
+<!ENTITY pHide.label "החבא">
+<!ENTITY pShow.label "הצג">
+<!ENTITY pRemove.label "הסר">
+<!ENTITY pHide.accesskey "H">
+<!ENTITY pShow.accesskey "S">
+<!ENTITY pRemove.accesskey "e">
+<!ENTITY pReset.label "אפס">
+<!ENTITY pReset.accesskey "R">
+<!ENTITY pResetTip.label "אפס תפריט זה לתצורת ברירת המחדל שלו (וגם כל חיבור להרחבה)">
+<!ENTITY pResetAll.label "אפס הכל">
+<!ENTITY pResetAll.accesskey "A">
+<!ENTITY pApply.label "החל">
+<!ENTITY pApply.accesskey "p">
+<!ENTITY oMenuitem.label "התאם אישית תפריטים...">
+<!ENTITY oMenuitem.accesskey "s">
+<!ENTITY oMEoptions.commandkey "s">

@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Menu Editor - beállítások">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "Menü módosítása">
+<!ENTITY pRightTree.label "Elérhető menüelemek">
+<!ENTITY pVisibileCheckbox.label "Látható">
+<!ENTITY pVisibileCheckbox.accesskey "L">
+<!ENTITY pLabelCol.label "Azonosítás">
+<!ENTITY pVisibilityCol.label "Látható">
+<!ENTITY pPalette.label "Paletta">
+<!ENTITY pPaletteColumn.label "Elérhető elemek">
+<!ENTITY pNewSeparator.label "&lt;Új elválasztó&gt;">
+<!ENTITY pHide.label "Elüntetni">
+<!ENTITY pShow.label "Mutatni">
+<!ENTITY pRemove.label "Eltávolítani">
+<!ENTITY pHide.accesskey "E">
+<!ENTITY pShow.accesskey "M">
+<!ENTITY pRemove.accesskey "l">
+<!ENTITY pReset.label "Alaphelyzet">
+<!ENTITY pReset.accesskey "z">
+<!ENTITY pResetTip.label "A lehetőség alaphelyzetbe állítása (minden kiterjesztés összes bővítményét)">
+<!ENTITY pResetAll.label "Alaphelyzetbe minden">
+<!ENTITY pResetAll.accesskey "m">
+<!ENTITY pApply.label "Alkalmaz">
+<!ENTITY pApply.accesskey "A">
+<!ENTITY oMenuitem.label "Lehetőségek módosítása...">
+<!ENTITY oMenuitem.accesskey "d">
+<!ENTITY oMEoptions.commandkey "d">

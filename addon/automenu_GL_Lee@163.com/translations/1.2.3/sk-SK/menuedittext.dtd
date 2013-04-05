@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Nastavenia rozšírenia Menu Editor">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "Upraviť ponuky">
+<!ENTITY pRightTree.label "Dostupné položky ponuky">
+<!ENTITY pVisibileCheckbox.label "Viditeľné">
+<!ENTITY pVisibileCheckbox.accesskey "V">
+<!ENTITY pLabelCol.label "Identifikácia">
+<!ENTITY pVisibilityCol.label "Viditeľné">
+<!ENTITY pPalette.label "Paleta">
+<!ENTITY pPaletteColumn.label "Dostupné položky">
+<!ENTITY pNewSeparator.label "&lt;Nový oddeľovač&gt;">
+<!ENTITY pHide.label "Skryť">
+<!ENTITY pShow.label "Zobraziť">
+<!ENTITY pRemove.label "Odstrániť">
+<!ENTITY pHide.accesskey "S">
+<!ENTITY pShow.accesskey "Z">
+<!ENTITY pRemove.accesskey "O">
+<!ENTITY pReset.label "Obnoviť">
+<!ENTITY pReset.accesskey "n">
+<!ENTITY pResetTip.label "Vráti túto ponuku do pôvodného nastavenia (vrátane doplnkov z všetkých rozšírení)">
+<!ENTITY pResetAll.label "Obnoviť všetko">
+<!ENTITY pResetAll.accesskey "v">
+<!ENTITY pApply.label "Použiť">
+<!ENTITY pApply.accesskey "P">
+<!ENTITY oMenuitem.label "Upraviť ponuky...">
+<!ENTITY oMenuitem.accesskey "U">
+<!ENTITY oMEoptions.commandkey "U">

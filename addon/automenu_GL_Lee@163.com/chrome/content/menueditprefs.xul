@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Menu Editor.
+   -
+   - The Initial Developer of the Original Code is
+   - Devon Jensen.
+   - Portions created by the Initial Developer are Copyright (C) 2003
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -    Devon Jensen <velcrospud@hotmail.com>
+   -    Nickolay Ponomarev <asqueella@gmail.com>
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+<?xml-stylesheet href="chrome://automenu_GL/content/tree.css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://automenu_GL/locale/menuedittext.dtd">
+
+<!-- About some attributes on the dialog element. They are used to easily persist
+  the state of the window in localstore (via persist attribute).
+
+  "selIndex"/"selIndex2" are the indices of the selected element in the two drop-downs.
+  "simple" is a true/false value indicating whether we're in simple or advanced mode.
+-->
+
+<dialog id="menueditPrefs" windowtype="automenu_GL:options"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  title="&pTitle.label;" width="&pWidth;" height="&pHeight;" 
+  selIndex="3" selIndex2="1" simple="true"
+  persist="screenX screenY width height selIndex selIndex2 simple"
+  buttons="accept,cancel,extra1"
+  buttonlabelextra1="&pApply.label;" buttonaccesskeyextra1="&pApply.accesskey;"
+  onload="Dialog.init();" onunload="Dialog.onUnload();"
+  ondialogaccept="Dialog.saveSettings();" ondialogcancel="Dialog.dontSave();"
+  ondialogextra1="Dialog.saveSettings();">
+
+  <script src="chrome://global/content/nsDragAndDrop.js"/>
+  <script src="common.js"/>
+  <script src="menueditprefs.js"/>
+
+  <stringbundleset>
+    <stringbundle id="menueditstrings" src="chrome://automenu_GL/locale/automenu_GL.properties"/>
+  </stringbundleset>
+
+  <vbox>
+    <description id="intro1" style="font-weight:bold;">Title</description>
+    <description id="intro2">Info</description>
+  </vbox>
+  <hbox flex="1">
+  <groupbox id="groupbox1" flex="1"><caption label="&pLeftTree.label;"/>
+    <hbox flex="1">
+      <vbox flex="1">
+        <hbox>
+          <menuselector id="menuSelector" tree="maintree" flex="1" orient="vertical" 
+            comment="orient=vertical is a workaround to make anonymous menulist have correct width"/>
+          <checkbox id="showMenuCheck" label="&pVisibileCheckbox.label;"
+            accesskey="&pVisibileCheckbox.accesskey;" oncommand="Dialog.toggleMenu();"/>
+        </hbox>
+        <menueditor id="maintree" flex="1" col1="Name" col2="Vis"
+                    onfocus="Dialog.updateButtons();"/>
+      </vbox>
+      <vbox>
+        <button oncommand="Dialog.reset();" label="&pReset.label;"
+          accesskey="&pReset.accesskey;" tooltiptext="&pResetTip.label;"/>
+        <spacer flex="1"/>
+        <!-- The show/hide/remove "button"
+             xxx unneeded border drawn on winxp (mozilla bug) -->
+        <deck id="showhide">
+          <button label="&pShow.label;" accesskey="&pShow.accesskey;"
+                  oncommand="Dialog.showHide(Tree);"/>
+          <button label="&pHide.label;" accesskey="&pHide.accesskey;"
+                  oncommand="Dialog.showHide(Tree);"/>
+          <button label="&pRemove.label;" accesskey="&pRemove.accesskey;"
+                  oncommand="Dialog.removeSeparatorsFromLeftTree();"/>
+        </deck>
+
+        <!-- do we need this? button label="&pFindNew.label;" oncommand="Dialog.findNew();" tooltiptext="&pFindTip.label;"/-->
+        <spacer flex="1"/>
+        <button id="move" hidden="true" oncommand="Dialog.onMoveClick();"/>
+      </vbox>
+    </hbox>
+  </groupbox>
+  </hbox>
+  <hbox>
+    <button label="&pResetAll.label;" oncommand="Dialog.resetAll();" accesskey="&pResetAll.accesskey;"/>
+    <textbox id="tipImageURI" type="autocomplete" autocompletesearch="history" flex="1"/>
+    <button id="browserTipImage" label="browser..." oncommand="Dialog.pickFile();"/>
+  </hbox>
+  <separator class="thin"/>
+</dialog>

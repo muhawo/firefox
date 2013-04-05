@@ -1,0 +1,23 @@
+﻿<!ENTITY aboutTitle.label     "About Menu Editor">
+
+<!ENTITY introTab.label       "Introduction">
+<!ENTITY by.label             "By Devon Jensen">
+<!ENTITY version.label        "Version">
+<!ENTITY tagLine.label        "This browser add-on allows you to customize the menus in Firefox">
+<!ENTITY rearrange.label      "Rearrange or remove menuitems from the main context menu (right-click menu), main menubar (File Edit View etc.) and tab context menu">
+
+<!ENTITY donateText.label     "To be honest, I spend a lot of time creating, maintaining, and supporting this add-on and several other Firefox add-ons.  If it makes your Firefox experience better, please consider making a small donation.  (Paypal account is not necessary.  Credit cards accepted.)">
+<!ENTITY donate.label         "Donate">
+<!ENTITY majorRelease.label   "Updated Release!">
+<!ENTITY changelog.label      "See what's new">
+
+<!ENTITY openOptions.label    "Get started by opening the Menu Editor options window">
+<!ENTITY openPref.label       "Open Menu Editor Options">
+<!ENTITY shortcut.label       "You can also use Ctrl+Shift+s to bring up the options window">
+
+<!ENTITY specialThanks.label  "(Special thanks to Nickolay Ponomarev)">
+
+<!ENTITY OK.label             "Close">
+
+<!ENTITY uniblueTip.label      "Dica:">
+<!ENTITY uniblueLink.label     "Clique aqui para analisar a existência de Erros do Sistema e optimizar o desempenho do PC">

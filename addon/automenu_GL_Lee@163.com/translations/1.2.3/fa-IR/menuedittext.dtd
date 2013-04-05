@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "تنظیمات ویرایش منو">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "ویرایش منو">
+<!ENTITY pRightTree.label "موارد قابل دسترس">
+<!ENTITY pVisibileCheckbox.label "نمایان">
+<!ENTITY pVisibileCheckbox.accesskey "V">
+<!ENTITY pLabelCol.label "شناسه">
+<!ENTITY pVisibilityCol.label "نمایان">
+<!ENTITY pPalette.label "الگو">
+<!ENTITY pPaletteColumn.label "موارد قابل دسترس">
+<!ENTITY pNewSeparator.label "&lt;New separator&gt;">
+<!ENTITY pHide.label "پنهان کردن">
+<!ENTITY pShow.label "نمایش دادن">
+<!ENTITY pRemove.label "پاک کردن">
+<!ENTITY pHide.accesskey "H">
+<!ENTITY pShow.accesskey "S">
+<!ENTITY pRemove.accesskey "e">
+<!ENTITY pReset.label "باز نشانی">
+<!ENTITY pReset.accesskey "R">
+<!ENTITY pResetTip.label "بازگردانی این منو به تنظیمات پیشفرض (به علاوه گزینه های افزونه ها)">
+<!ENTITY pResetAll.label "بازنشانی همه">
+<!ENTITY pResetAll.accesskey "A">
+<!ENTITY pApply.label "اعمال کردن">
+<!ENTITY pApply.accesskey "p">
+<!ENTITY oMenuitem.label "سفارشی سازی منوها">
+<!ENTITY oMenuitem.accesskey "s">
+<!ENTITY oMEoptions.commandkey "s">

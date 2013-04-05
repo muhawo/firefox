@@ -1,0 +1,25 @@
+content automenu_GL chrome/content/
+
+overlay	chrome://browser/content/browser.xul	chrome://automenu_GL/content/menueditoverlay.xul
+overlay	chrome://messenger/content/messenger.xul	chrome://automenu_GL/content/menueditoverlay.xul
+
+locale automenu_GL en-US chrome/locale/en-US/
+locale automenu_GL da-DK translations/1.2.3/da-DK/
+locale automenu_GL de-DE translations/1.2.3/de-DE/
+locale automenu_GL es-ES translations/1.2.3/es-ES/
+locale automenu_GL fa-IR translations/1.2.3/fa-IR/
+locale automenu_GL fr-FR translations/1.2.3/fr-FR/
+locale automenu_GL he-IL translations/1.2.3/he-IL/
+locale automenu_GL hu-HU translations/1.2.3/hu-HU/
+locale automenu_GL it-IT translations/1.2.3/it-IT/
+locale automenu_GL ja-JP translations/1.2.3/ja-JP/
+locale automenu_GL ko-KR translations/1.2.3/ko-KR/
+locale automenu_GL nb-NO translations/1.2.3/nb-NO/
+locale automenu_GL nl-NL translations/1.2.3/nl-NL/
+locale automenu_GL pl-PL translations/1.2.3/pl-PL/
+locale automenu_GL pt-BR translations/1.2.3/pt-BR/
+locale automenu_GL pt-PT translations/1.2.3/pt-PT/
+locale automenu_GL sk-SK translations/1.2.3/sk-SK/
+locale automenu_GL sv-SE translations/1.2.3/sv-SE/
+locale automenu_GL zh-CN translations/1.2.3/zh-CN/
+locale automenu_GL zh-TW translations/1.2.3/zh-TW/

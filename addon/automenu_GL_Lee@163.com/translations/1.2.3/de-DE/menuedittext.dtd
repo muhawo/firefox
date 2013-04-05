@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Menu Editor - Menüs anpassen">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "Menü bearbeiten">
+<!ENTITY pRightTree.label "Verfügbare Menüeinträge">
+<!ENTITY pVisibileCheckbox.label "Sichtbar">
+<!ENTITY pVisibileCheckbox.accesskey "S">
+<!ENTITY pLabelCol.label "Bezeichnung">
+<!ENTITY pVisibilityCol.label "Sichtbar">
+<!ENTITY pPalette.label "Palette">
+<!ENTITY pPaletteColumn.label "Verfügbare Einträge">
+<!ENTITY pNewSeparator.label "&lt;Neue Trennlinie&gt;">
+<!ENTITY pHide.label "Ausblenden">
+<!ENTITY pShow.label "Anzeigen">
+<!ENTITY pRemove.label "Entfernen">
+<!ENTITY pHide.accesskey "b">
+<!ENTITY pShow.accesskey "z">
+<!ENTITY pRemove.accesskey "E">
+<!ENTITY pReset.label "Zurücksetzen">
+<!ENTITY pReset.accesskey "r">
+<!ENTITY pResetTip.label "Dieses Menü auf Standardkonfiguration zurücksetzen (inkl. aller Zusätze aus Erweiterungen)">
+<!ENTITY pResetAll.label "Alle zurücksetzen">
+<!ENTITY pResetAll.accesskey "A">
+<!ENTITY pApply.label "Übernehmen">
+<!ENTITY pApply.accesskey "Ü">
+<!ENTITY oMenuitem.label "Menüs anpassen...">
+<!ENTITY oMenuitem.accesskey "M">
+<!ENTITY oMEoptions.commandkey "M">

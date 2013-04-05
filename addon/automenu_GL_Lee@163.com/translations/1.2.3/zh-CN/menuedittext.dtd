@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "菜单编辑器 - 选项">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "编辑菜单">
+<!ENTITY pRightTree.label "可用菜单项">
+<!ENTITY pVisibileCheckbox.label "显示(V)">
+<!ENTITY pVisibileCheckbox.accesskey "V">
+<!ENTITY pLabelCol.label "名称">
+<!ENTITY pVisibilityCol.label "显示">
+<!ENTITY pPalette.label "其他">
+<!ENTITY pPaletteColumn.label "可用项目">
+<!ENTITY pNewSeparator.label "&lt;分隔线&gt;">
+<!ENTITY pHide.label "隐藏(H)">
+<!ENTITY pShow.label "显示(S)">
+<!ENTITY pRemove.label "删除(e)">
+<!ENTITY pHide.accesskey "H">
+<!ENTITY pShow.accesskey "S">
+<!ENTITY pRemove.accesskey "e">
+<!ENTITY pReset.label "重置(R)">
+<!ENTITY pReset.accesskey "R">
+<!ENTITY pResetTip.label "恢复此菜单为默认设置 (包括安装插件或扩展添加的项目)">
+<!ENTITY pResetAll.label "全部重置(A)">
+<!ENTITY pResetAll.accesskey "A">
+<!ENTITY pApply.label "应用(p)">
+<!ENTITY pApply.accesskey "p">
+<!ENTITY oMenuitem.label "自定义菜单(s)...">
+<!ENTITY oMenuitem.accesskey "s">
+<!ENTITY oMEoptions.commandkey "s">

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Seq RDF:about="http://home.netscape.com/NC-rdf#MenuEditRoot">
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#a"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#img"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#input"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#selectedText"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#document"/>
+  </RDF:Seq>
+  <RDF:Seq RDF:about="http://home.netscape.com/NC-rdf#img">
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-viewimage#image"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-copyimage-contents#image"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-copyimage#image"/>
+    <RDF:li RDF:resource="rdf:#$fLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-saveimage#image"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-sendimage#image"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-setDesktopBackground#image"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-viewimageinfo#image"/>
+    <RDF:li RDF:resource="rdf:#$gLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-inspect#image"/>
+    <RDF:li RDF:resource="rdf:#$hLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#menu_firebug_firebugInspect#image"/>
+  </RDF:Seq>
+  <RDF:Seq RDF:about="http://home.netscape.com/NC-rdf#input">
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-undo#input"/>
+    <RDF:li RDF:resource="rdf:#$iLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-cut#input"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-copy#input"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-paste#input"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-delete#input"/>
+    <RDF:li RDF:resource="rdf:#$jLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-selectall#input"/>
+    <RDF:li RDF:resource="rdf:#$kLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#spell-add-dictionaries-main#input"/>
+    <RDF:li RDF:resource="rdf:#$lLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-inspect#input"/>
+    <RDF:li RDF:resource="rdf:#$mLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#menu_firebug_firebugInspect#input"/>
+  </RDF:Seq>
+  <RDF:Seq RDF:about="http://home.netscape.com/NC-rdf#a">
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-openlinkintab#a"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-openlink#a"/>
+    <RDF:li RDF:resource="rdf:#$cLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-bookmarklink#a"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-savelink#a"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-copylink#a"/>
+    <RDF:li RDF:resource="rdf:#$dLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#context-inspect#a"/>
+    <RDF:li RDF:resource="rdf:#$eLtko1"/>
+    <RDF:li RDF:resource="http://home.netscape.com/NC-rdf#menu_firebug_firebugInspect#a"/>
+  </RDF:Seq>
+</RDF:RDF>

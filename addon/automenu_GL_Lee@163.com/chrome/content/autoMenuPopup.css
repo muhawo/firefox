@@ -1,0 +1,6 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* set up the binding for "editable menu" */
+autoMenuPopup {
+  -moz-binding: url("chrome://automenu_GL/content/autoMenuPopup.xml#autoMenuPopup");
+}

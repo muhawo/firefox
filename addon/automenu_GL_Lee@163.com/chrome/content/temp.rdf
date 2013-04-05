@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rel="http://www.xulplanet.com/rdf/">
+
+  <rdf:Seq rdf:about="http://www.xulplanet.com/rdf/A">
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/a"/>
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/img"/>
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/input"/>
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/selectedText"/>
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/document"/>
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/B"/>
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/C"/>
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/D"/>
+  </rdf:Seq>
+
+  <rdf:Seq rdf:about="http://www.xulplanet.com/rdf/C">
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/e"/>
+    <rdf:li rdf:resource="http://www.xulplanet.com/rdf/f"/>
+  </rdf:Seq>
+
+  <rdf:Seq rdf:about="http://www.xulplanet.com/rdf/img">
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#context-viewimage#image"/>
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#context-copyimage-contents#image"/>
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#context-copyimage#image"/>
+    <rdf:li rdf:resource="rdf:#$fLtko1"/>
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#context-saveimage#image"/>
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#context-sendimage#image"/>
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#context-setDesktopBackground#image"/>
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#context-viewimageinfo#image"/>
+    <rdf:li rdf:resource="rdf:#$gLtko1"/>
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#context-inspect#image"/>
+    <rdf:li rdf:resource="rdf:#$hLtko1"/>
+    <rdf:li rdf:resource="http://home.netscape.com/NC-rdf#menu_firebug_firebugInspect#image"/>
+  </rdf:Seq>
+</rdf:RDF>

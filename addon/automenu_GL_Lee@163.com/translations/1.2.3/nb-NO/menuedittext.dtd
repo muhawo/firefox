@@ -1,0 +1,28 @@
+<!ENTITY pTitle.label "Innstillinger - Menu Editor">
+<!ENTITY pWidth "370">
+<!ENTITY pHeight "480">
+<!ENTITY pLeftTree.label "Rediger meny">
+<!ENTITY pRightTree.label "Tilgjengelige menyelementer">
+<!ENTITY pVisibileCheckbox.label "Vis">
+<!ENTITY pVisibileCheckbox.accesskey "V">
+<!ENTITY pLabelCol.label "Identifisering">
+<!ENTITY pVisibilityCol.label "Vis">
+<!ENTITY pPalette.label "Palett">
+<!ENTITY pPaletteColumn.label "Tilgjengelige elementer">
+<!ENTITY pNewSeparator.label "&lt;Ny skillelinje&gt;">
+<!ENTITY pHide.label "Skjul">
+<!ENTITY pShow.label "Vis">
+<!ENTITY pRemove.label "Fjern">
+<!ENTITY pHide.accesskey "H">
+<!ENTITY pShow.accesskey "S">
+<!ENTITY pRemove.accesskey "e">
+<!ENTITY pReset.label "Nullstill">
+<!ENTITY pReset.accesskey "R">
+<!ENTITY pResetTip.label "Nullstill denne menyen (og eventuelle utvidelsestillegg)">
+<!ENTITY pResetAll.label "Nullstill alt">
+<!ENTITY pResetAll.accesskey "A">
+<!ENTITY pApply.label "Bruk">
+<!ENTITY pApply.accesskey "p">
+<!ENTITY oMenuitem.label "Tilpass menyer ...">
+<!ENTITY oMenuitem.accesskey "s">
+<!ENTITY oMEoptions.commandkey "s">

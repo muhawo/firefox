@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+<!DOCTYPE window SYSTEM "chrome://automenu_GL/locale/menueditAboutText.dtd">
+
+<window id="aboutMenuedit"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	title="&aboutTitle.label;"
+	style="background-color: rgb(237, 233, 224);">
+	
+	<script type="application/x-javascript" src="chrome://automenu_GL/content/aboutMenuedit.js"/>
+	
+  <scrollbox id="scrollContainer" orient="vertical" flex="1" style="overflow:auto; background-color: rgb(237, 233, 224);">
+  	<spacer height="10"/>
+  	<hbox>
+  	  <vbox flex="1"/>
+  	   <vbox style="border:2px outset black; padding:8px; background-color:#d6d2ca;">
+  	   	
+  	   	<hbox pack="top">
+  	   		<vbox>
+  	   			<label value="Menu Editor" style="font-size:20px; cursor:pointer; padding:5px 10px 5px 10px; background:-moz-linear-gradient(top, #e2e9f7 , #7293d9); -moz-border-radius: 8px; border:1px solid #999999;" 
+					   onclick="openLink('http://menueditor.mozdev.org/');"/>
+  	   			<vbox flex="1"/>
+  	   		</vbox>
+			
+			<vbox pack="center">
+				<hbox>
+					<label value="&version.label;" style="font-size:9pt;margin-top:1px;margin-bottom:0px;"/>
+					<label id="extVersion" value="getVersion" style="padding-left:0px;margin-left:0px;margin-top:1px;margin-bottom:0px;font-size:9pt;"/>
+				</hbox>
+				<hbox align="center">
+					<label value="&by.label;" style="font-size:9pt;"/>
+					<label value="&specialThanks.label;" style="font-size:7pt;"/>
+				</hbox>
+			</vbox>
+			<spacer flex="1"/>
+			
+			<hbox align="center" style="background-color:#f1f1ec;-moz-border-radius:4px; border:1px solid #b2b2b2; margin-right:10px;">
+				<image src="chrome://automenu_GL/content/celebrating.png"/>
+			</hbox>
+		</hbox>
+		<spacer height="20"/>
+		
+	
+		<hbox pack="center">
+		  	<tabbox maxwidth="650" maxheight="450">
+		    <tabs>
+		      <tab label="&introTab.label;" style="font-size:11pt;"/>
+		    </tabs>
+		    <tabpanels flex="1" style='-moz-appearance:none; background-color:white;'>
+		    	<tabpanel id="introTab">
+		    		<vbox flex="1">
+			    		<spacer height="10"/>
+						<hbox pack="center">
+							
+							<iframe id="centerMessage" src="" type="content" width="520" height="60"/>
+								
+						</hbox>
+						
+						<spacer height="20"/>
+						
+			    		<description style="font-size:11pt;">
+			    			&tagLine.label;
+			    		</description>
+			    		<separator/>
+
+			    		<description style="font-size:11pt;">
+			    			&rearrange.label;
+			    		</description>
+		
+			    		<separator/>
+			    		
+			    		<hbox align="center">
+				    		<description style="font-size:11pt;">
+				    			&openOptions.label;
+				    		</description>
+			    		
+			    			<button label="&openPref.label;" oncommand="window.open('chrome://automenu_GL/content/menueditprefs.xul', 'menuedit_prefs', 'chrome');" />
+		
+						</hbox>
+						<description style="font-size:11pt;">
+			    			&shortcut.label;
+			    		</description>
+			    		
+			    		<separator/>
+			    		<hbox>
+			    			<!-- https://www.paypal.com/en_US/i/btn/x-click-but21.gif ugly orange color now -->
+			    			<image src="chrome://automenu_GL/content/make_a_donation.gif"
+			    			       onclick="openLink('http://menueditor.mozdev.org/donateRedirect.html');" style="cursor:pointer;"/>
+			    			<hbox flex="1"/>
+			    		</hbox>
+			    		<separator class="thin"/>
+			    		<description style="font-size:11pt;">
+			    			&donateText.label; <html:span onclick="openLink('http://menueditor.mozdev.org/donateRedirect.html');" style="color:blue; cursor:pointer;">&donate.label;</html:span>
+			    		</description>
+			    		<separator/>
+			    		
+			    	</vbox>
+		    	</tabpanel>
+		    </tabpanels>
+		  </tabbox>
+ 		</hbox>
+	  <hbox>
+	  	<spacer flex="1"/>
+	  	<button label="&OK.label;" oncommand="window.close();"/>
+	  </hbox>
+	 </vbox>
+  	<vbox id="rightContentBox" flex="1">
+		<iframe id="rightContent" flex="1"
+           type="content" 
+           src="http://enzysoft.com/downbarWelcomeRight.html">
+		</iframe>
+	</vbox>
+  </hbox>
+  <seperator/>
+  
+   <iframe id="bottomContent"
+           type="content" 
+           src="http://enzysoft.com/downbarWelcomeBottom.html"
+		   style="height:500px;">
+	</iframe>
+  <separator/>
+  </scrollbox>	
+</window>
+
+<!--
+
+
+-->

@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is Menu Editor.
+   -
+   - The Initial Developer of the Original Code is
+   - Devon Jensen.
+   - Portions created by the Initial Developer are Copyright (C) 2003
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -    Devon Jensen <velcrospud@hotmail.com>
+   -    Nickolay Ponomarev <asqueella@gmail.com>
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/customizeToolbar.css" type="text/css"?>
+<?xml-stylesheet href="chrome://automenu_GL/content/autoMenuPopup.css"?>
+<?xml-stylesheet href="chrome://automenu_GL/content/tree.css"?>
+<?xml-stylesheet href="chrome://automenu_GL/content/customizeToolbar.css"?>
+<!DOCTYPE overlay [
+  <!ENTITY % commonDTD SYSTEM "chrome://automenu_GL/locale/menuedittext.dtd">
+  %commonDTD;
+  <!ENTITY % customizeToolbarDTD SYSTEM "chrome://global/locale/customizeToolbar.dtd">
+  %customizeToolbarDTD;
+]>
+<overlay id="menueditOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="common.js"/>
+  <script src="menueditoverlay.js"/>
+  <script src="autoContexMenu.js"/>
+  <script src="customizeToolbar1.js"/>
+  
+<popupset id="mainPopupSet">
+<panel id="GL_panel" noautohide="false"
+		currentset="history-button,bookmarks-menu-button-container,home-button,downloads-button"
+        persist="currentset"
+        onmouseover="autoShowMenu.popupMouseover();"
+    	onmouseout="autoShowMenu.popupMouseout();"
+       >
+  <vbox>
+  	<vbox flex="1" id="palette-box-showed" mode="icons"/>
+	<separator class="groove"/>
+  	<hbox>
+  		<button label="+ -" tooltiptext="&toolbuttonAddRemove.label;" oncommand="menuPanelAbout.set();"/>
+  	</hbox>
+  	<vbox id="palette-box-below" hidden="true">
+	<separator class="groove"/>
+  	<vbox id="palette-box-hidden" mode="icons"/>
+	<box align="center">
+	    <label value="&show.label;"/>
+	    <menulist id="modelist" value="icons" oncommand="menuPanelAbout.updateToolbarMode(this.value);">
+	      <menupopup>
+	        <menuitem value="full" label="&iconsAndText.label;"/>
+	        <menuitem value="icons" label="&icons.label;"/>
+	        <menuitem value="text" label="&text.label;"/>
+	      </menupopup>
+	    </menulist>
+	
+	    <!--<checkbox id="smallicons" oncommand="menuPanelAbout.updateIconSize(this.checked ? 'small' : 'large');" label="&useSmallIcons.label;"/>-->
+	
+	    <button label="&restoreDefaultSet.label;" oncommand="menuPanelAbout.restoreDefaultSet();" icon="revert"/>
+	</box>
+	
+	<separator class="groove"/>
+	
+	<hbox align="center" pack="end">
+	  <button id="donebutton" label="&saveChanges.label;" oncommand="menuPanelAbout.onClose();"
+	          default="true" icon="close"/>
+	</hbox>
+	</vbox>
+  </vbox>
+</panel>
+</popupset>
+
+  
+  
+  
+  	<window id="main-window">
+  	<tipBox id="tipBox" style="position:fixed;left:0px;top:0px;border:thin solid;"
+  		 onmouseout="autoShowMenu.inTipBoxFlg = false;clearTimeout(autoShowMenu.timerId);"
+  		 onclick="document.getElementById('GL_panel').openPopup(this, 'after_start', 0, 0);this.style.visibility='hidden';autoShowMenu.OpenedPopup=document.getElementById('GL_panel');"/>
+  	<popupset id = "popupsBox"
+  		datasources="RDF:null"
+        xmlns:NC="http://home.netscape.com/NC-rdf#"
+ 		xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        ref="NC:MenuEditRoot">
+	  <template>
+		<rule NC:Visibility = "hidden">
+		</rule>
+		<rule RDF:type="http://home.netscape.com/NC-rdf#Menuitem">
+    		<menuitem uri="rdf:*" class="tMenuitem" label="rdf:http://home.netscape.com/NC-rdf#Name"  oncommand="autoShowMenu.doCommand(this);"/>
+		</rule>
+		<rule RDF:type="http://home.netscape.com/NC-rdf#BookmarkSeparator">
+    		<menuseparator/>
+		</rule>
+		<rule>
+    		<menupopup uri="RDF:*" onmouseover="autoShowMenu.popupMouseover();"
+    			onmouseout="autoShowMenu.popupMouseout();"/>
+		</rule>
+	  </template>
+	</popupset>
+ </window>
+ 
+ 
+ 
+ <popupset id="mainPopupSet">
+<panel id="CustomizeToolbarPanel" noautohide="false">
+<vbox id="main-box_GL-Lee" flex="1">
+  <description id="instructions">
+  instructions.description;
+  </description>
+
+  <vbox flex="1" id="palette-box_GL-Lee"
+        ondragstart="GL_onToolbarDragStart(event)"
+        ondragover="GL_onToolbarDragOver(event)"
+        ondrop="GL_onToolbarDrop(event)"
+        ondragexit="GL_onToolbarDragExit(event)"
+        width="100"
+        height="100"
+        style="boder:solid"
+        persist="width currentset"
+        >
+  </vbox>
+
+  <box id="GL_boxcenter" align="center"  hidden="true">
+    <label value="show.label;"/>
+    <menulist id="modelist_GL-Lee" value="icons" oncommand="updateToolbarMode(this.value);">
+      <menupopup>
+        <menuitem value="full" label="iconsAndText.label;"/>
+        <menuitem value="icons" label="icons.label;"/>
+        <menuitem value="text" label="text.label;"/>
+      </menupopup>
+    </menulist>
+
+    <checkbox id="smallicons_GL-Lee" oncommand="updateIconSize(this.checked ? 'small' : 'large');" label="useSmallIcons.label;"/>
+
+    <button label="addNewToolbar.label;" oncommand="addNewToolbar();" icon="add"/>
+    <button label="restoreDefaultSet.label;" oncommand="restoreDefaultSet();" icon="revert"/>
+  </box>
+
+  <separator class="groove"/>
+
+  <hbox align="center" pack="end">
+    <button id="setbutton_GL-Lee" label="set" oncommand="GL_set();"/>
+    <button id="donebutton_GL-Lee" label="saveChanges.label;" oncommand="GL_onToolbarDragExit();"
+            default="true" icon="close"  hidden="true"/>
+  </hbox>
+</vbox>
+</panel>
+ </popupset>
+ 
+ 
+
+  <menupopup id="menu_ToolsPopup">
+	<menuitem id="autoContexMunu_toolbutton" class="menuitem-iconic" label="menu" oncommand="MenuEdit.openSettings();"/>
+  </menupopup>
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="menueditstrings" src="chrome://automenu_GL/locale/automenu_GL.properties"/>
+  </stringbundleset>
+
+  <!-- Firefox -->
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="menueditor-options-fx" oncommand="MenuEdit.openOptions();"
+      label="&oMenuitem.label;" accesskey="&oMenuitem.accesskey;"
+      hidden="true" key="key_togMEoptions"/>
+  </menupopup>
+
+  <keyset id="mainKeyset">
+    <key id="key_togMEoptions" key="&oMEoptions.commandkey;"
+      oncommand="MenuEdit.openOptions();" modifiers="accel,shift"/>
+  </keyset>
+
+  <!-- Thunderbird -->
+  <menupopup id="taskPopup">
+    <menuitem id="menueditor-options-tb" oncommand="MenuEdit.openOptions();"
+      label="&oMenuitem.label;" accesskey="&oMenuitem.accesskey;"
+      hidden="true" key="key_togMEoptions"/>
+  </menupopup>
+
+  <keyset id="tasksKeys">
+    <key id="key_togMEoptions" key="&oMEoptions.commandkey;" 
+      oncommand="MenuEdit.openOptions();" modifiers="accel,shift"/>
+  </keyset>
+  <tabbrowser id="content">
+  	<box id="automenuBox" contextMenu="contentAreaContextMenu">
+  <div xmlns="http://www.w3.org/1999/xhtml"  hidden="true" id="automenuDiv">
+  	 <a id="automenuBox_popup_a" _type="a" class="menu" href="http://www.example.com">
+  	 	baidu.com
+  	 </a>
+  	 <img id="automenuBox_popup_image" src="chrome://automenu_GL/content/enabled.png"/>
+  	 <input id="automenuBox_popup_input"  _type="input"/>
+  	 <div id="automenuBox_popup_document">document</div>
+  </div>
+  </box>
+  </tabbrowser>
+
+</overlay>
+

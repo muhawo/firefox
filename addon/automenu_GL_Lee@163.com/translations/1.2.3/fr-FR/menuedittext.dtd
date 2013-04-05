@@ -1,0 +1,43 @@
+﻿<!-- Options window -->
+<!ENTITY  pTitle.label  "Options de Menu Editor">
+
+<!-- Default width and height of the ME Options window -->
+<!ENTITY  pWidth  "370">
+<!ENTITY  pHeight "480">
+
+<!ENTITY  pLeftTree.label  "Menu d'édition">
+<!ENTITY  pRightTree.label "Éléments de menu disponibles">
+
+<!ENTITY  pVisibileCheckbox.label  "Visible">
+<!ENTITY  pVisibileCheckbox.accesskey  "V">
+
+<!ENTITY  pLabelCol.label  "Identification">
+<!ENTITY  pVisibilityCol.label  "Visible">
+
+<!ENTITY  pPalette.label "Palette">
+<!ENTITY  pPaletteColumn.label  "Éléments disponibles">
+<!ENTITY  pNewSeparator.label  "&lt;Nouveau séparateur&gt;">
+
+<!ENTITY  pHide.label  "Cacher">
+<!ENTITY  pShow.label  "Montrer">
+<!ENTITY  pRemove.label "Enlever">
+<!ENTITY  pHide.accesskey "C">
+<!ENTITY  pShow.accesskey "M">
+<!ENTITY  pRemove.accesskey "E">
+
+<!--ENTITY  pFindNew.label  "Trouver de Nouveaux Éléments">
+<!ENTITY  pFindTip.label  "Trouver de nouveaux éléments de menu qui n'ont pas été automatiquement détectés (p. ex. en provenance d'autres extensions)"-->
+
+<!ENTITY  pReset.label "Restaurer">
+<!ENTITY  pReset.accesskey "R">
+<!ENTITY  pResetTip.label "Restaurer la configuration par défaut pour ce menu (ainsi que toute addition d'une autre extension)">
+<!ENTITY  pResetAll.label "Tout Restaurer">
+<!ENTITY  pResetAll.accesskey "T">
+
+<!ENTITY  pApply.label  "Appliquer">
+<!ENTITY  pApply.accesskey  "A">
+
+<!-- Overlay -->
+<!ENTITY  oMenuitem.label  "Personnaliser les Menus...">
+<!ENTITY  oMenuitem.accesskey "P">
+<!ENTITY  oMEoptions.commandkey "P">
